@@ -6,7 +6,19 @@ import styled from 'styled-components/macro';
 export const Buttons = () => {
   const dispatch = useDispatch();
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '.'];
-  const operators = ['+', '–', '*', '/'];
+  const operators = ['+', '-', '*', '/'];
+
+  window.addEventListener('keydown', (event) => {
+    const regex = /^[0-9~*()_+=.-]/;
+    if (event.key.match(regex)) {
+      dispatch(calculator.actions.setInputData(event.key));
+    } else if (event.key === 'Enter') {
+      dispatch(calculator.actions.calculateData());
+    } else if (event.key === 'Backspace') {
+      dispatch(calculator.actions.clearData());
+    }
+  });
+
   return (
     <ButtonsWrapper>
       <Button onClick={() => dispatch(calculator.actions.clearData())}>
@@ -18,12 +30,12 @@ export const Buttons = () => {
 
       {numbers.map((number) => {
         return (
-          <NumberButton
+          <Button
             key={number}
             onClick={() => dispatch(calculator.actions.setInputData(number))}
           >
             {number}
-          </NumberButton>
+          </Button>
         );
       })}
 
@@ -46,7 +58,7 @@ export const Buttons = () => {
 };
 
 const ButtonsWrapper = styled.div`
-  margin-top: 30px;
+  margin-top: 50px;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -93,14 +105,3 @@ const Button = styled.button`
     grid-row-start: 5;
   }
 `;
-
-const NumberButton = styled(Button)``;
-
-// &:nth-child(15) {
-//   grid-column-start: 4;
-//   grid-row-start: 4;
-// }
-// &:nth-child(16) {
-//   grid-column-start: 4;
-//   grid-row-start: 3;
-// }

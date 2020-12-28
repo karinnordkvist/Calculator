@@ -34,9 +34,10 @@ export const App = () => {
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
+  max-width: 500px;
+  margin: auto;
 `;
 
 const InnerWrapper = styled.div`
   margin: 30px;
-  height: 100%;
 `;

@@ -11,10 +11,15 @@ export const calculator = createSlice({
   initialState,
   reducers: {
     setInputData: (state, action) => {
+      state.sum = '';
       state.input = state.input.concat(action.payload);
     },
     calculateData: (state, action) => {
       if (state.input === '') {
+        state.input = '';
+        state.sum = '--- err';
+      } else if (!/\d/.test(state.input)) {
+        state.input = '';
         state.sum = '--- err';
       } else {
         state.sum = eval(state.input);

@@ -18,8 +18,6 @@ html {
 
 body {
   /* filter: invert(1); */
-  height: 100%;
-  width: 100%;
   margin: 0;
   font-family: 'JetBrains Mono', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
