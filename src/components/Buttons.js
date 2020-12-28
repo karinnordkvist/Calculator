@@ -5,7 +5,7 @@ import styled from 'styled-components/macro';
 
 export const Buttons = () => {
   const dispatch = useDispatch();
-  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '.'];
   const operators = ['+', '–', '*', '/'];
   return (
     <ButtonsWrapper>
@@ -72,19 +72,19 @@ const Button = styled.button`
     grid-column-start: 2;
   }
 
-  &:nth-child(13) {
+  &:nth-child(14) {
     grid-column-start: 4;
     grid-row-start: 1;
   }
-  &:nth-child(14) {
+  &:nth-child(15) {
     grid-column-start: 4;
     grid-row-start: 2;
   }
-  &:nth-child(15) {
+  &:nth-child(16) {
     grid-column-start: 4;
     grid-row-start: 3;
   }
-  &:nth-child(16) {
+  &:nth-child(17) {
     grid-column-start: 4;
     grid-row-start: 4;
   }
